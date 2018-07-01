@@ -26,7 +26,7 @@ bot.on('message', message => {
 	// Prefixes obligatoire pour les commandes du bot
 	if(!message.content.startsWith(prefix)) return;
 	// Puis on retire le prefixe du message
-	message.content = message.content.substring(length(prefix));
+	message.content = message.content.substring(prefix.length);
 
 	// Et enfin on decoupe notre message
 	var commande = message.content.split(" ")[0];						// On decoupe selon les espaces puis on récupère le premier mot (la commande donc)
@@ -55,6 +55,7 @@ bot.on('message', message => {
 			prefixe(message,parametre.split(" ")[0]);
 		break;
 	}
+	message.delete();
 });
 
 function help(message) {
