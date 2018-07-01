@@ -58,7 +58,7 @@ bot.on('message', message => {
 });
 
 function help(message) {
-	message.channel.send("Liste des commandes:\n -\\"+prefix+"help\t Affiche la liste des commandes\n-"+prefix+"salut\t Vous souhaite la bienvenue\n-"+prefix+"goat\t Affiche le gif d'une super chevre\n-\\"+prefix+"licorne\t Affiche la meilleure licorne du monde\n"+prefix+"prefixe\t Change le préfixe\n\nPour plus d'aide, taper "+prefix+"help [nom de la commande]");
+	message.channel.send("Liste des commandes:\n -\\"+prefix+"help\t Affiche la liste des commandes\n-\\"+prefix+"salut\t Vous souhaite la bienvenue\n-\\"+prefix+"goat\t Affiche le gif d'une super chevre\n-\\"+prefix+"licorne\t Affiche la meilleure licorne du monde\n"+prefix+"prefixe\t Change le préfixe\n\nPour plus d'aide, taper "+prefix+"help [nom de la commande]");
 	console.log("Commande help affichée");
 }
 
@@ -81,7 +81,7 @@ function prefixe(message,newPrefixe) {
 	// On change le prefixe dans notre variable
 	prefix = newPrefixe;
 	// Puis dans le fichier
-	config.prefix = newPrefixe;
+	settings.prefix = newPrefixe;
 	// Et enfin on sauvegarde le fichier
 	fs.writeFile("./settings.json",JSON.stringify(settings), err => console.error);
 	// On l'indique dans le channel
