@@ -3,12 +3,13 @@ const settings 	= require('./settings.json');
 const fs 		= require("fs");
 const bot 		= new Discord.Client();
 
-//----------↑↑ Constante ↑↑----------
+//----------↑↑ Constantes ↑↑----------
 
 var prefix 		= settings.prefix;
+var message;
 
-//----------↑↑ Variable ↑↑----------
-//----------↓↓   Code   ↓↓----------
+//----------↑↑ Variables ↑↑----------
+//----------↓↓    Code   ↓↓----------
 
 bot.login(settings.login);
 
@@ -21,6 +22,7 @@ bot.on('ready', function() {
 
 // S'execute lorsque le bot recoit un message (un message sur le channel)
 bot.on('message', message => {
+	message = message;
 	// Ignore les autres bots (pas de botception !)
 	if(message.author.bot) return;
 	// Prefixes obligatoire pour les commandes du bot
