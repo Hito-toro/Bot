@@ -12,7 +12,7 @@ bot.login("NDYyNzE3OTk3OTc1NjAxMTUy.Dhl7Rg.88YX_4zP9nXJTFKzmqpJHFAdpZk");
 bot.on('message', message => {
 	// "*help" -> Affiche la liste des commandes
     if (message.content === prefix + "help"){
-        message.channel.sendMessage("Liste des commandes: \n -\\*help\t Affiche la liste des commandes\n-salut\t Vous souhaite la bienvenue\n-goat\t Affiche le gif d'une super chevre\n-\\*licorne\t Affiche la meilleure licorne du monde");
+        message.channel.send("Liste des commandes: \n -\\*help\t Affiche la liste des commandes\n-salut\t Vous souhaite la bienvenue\n-goat\t Affiche le gif d'une super chevre\n-\\*licorne\t Affiche la meilleure licorne du monde");
     }
     // "salut" -> Affiche "Bien le bonjour ! :)"
     else if (message.content === "salut"){
@@ -27,7 +27,7 @@ bot.on('message', message => {
     // "*licorne" -> Affiche l'image d'une licorne
     else if (message.content === prefix + "licorne")
     {
-    	message.reply("https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiVydqd6P3bAhXJthQKHVMuCjMQjRx6BAgBEAU&url=http%3A%2F%2Fthecooline.tumblr.com%2F&psig=AOvVaw3ab8CMizbCiWWSjzdDq5NE&ust=1530531475482160");
+    	message.channel.send("https://cdn.discordapp.com/attachments/282472433313644544/462945595955478528/licorne.jpg");
     	console.log("La meilleure licorne du monde à été affichée.")
     }
 });
