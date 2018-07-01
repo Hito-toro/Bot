@@ -15,7 +15,7 @@ bot.login(settings.login);
 // S'execute lors de la mise en route du bot
 bot.on('ready', function() {
 	// Modifie le jeu du bot
-    bot.user.setActivity("Command: *help");
+    bot.user.setActivity("Command: "+prefix+"help");
     console.log("Connected");
 });
 
@@ -24,9 +24,9 @@ bot.on('message', message => {
 	// Ignore les autres bots (pas de botception !)
 	if(message.author.bot) return;
 	// Prefixes obligatoire pour les commandes du bot
-	if(message.content[0] !== prefix) return;
+	if(!message.content.startsWith(prefix)) return;
 	// Puis on retire le prefixe du message
-	message.content = message.content.substring(1);
+	message.content = message.content.substring(length(prefix));
 
 	// Et enfin on decoupe notre message
 	var commande = message.content.split(" ")[0];						// On decoupe selon les espaces puis on récupère le premier mot (la commande donc)
@@ -86,4 +86,6 @@ function prefixe(message,newPrefixe) {
 	fs.writeFile("./settings.json",JSON.stringify(settings), err => console.error);
 	// On l'indique dans le channel
 	message.channel.send("Nouveau préfixe : " + newPrefixe);
+	// Modifie le jeu du bot
+    bot.user.setActivity("Command: "+prefix+"help");
 }
