@@ -2,10 +2,15 @@ const Discord 	= require('discord.js');
 const settings 	= require('./settings.json');
 const fs 		= require("fs");
 const bot 		= new Discord.Client();
+const responses	= ["Hawk-sama vous a repondu bandes de porcs !", "Oh! Quelqu'un appelle le Capitaines des restes !",
+					"Ne prononce pas mon nom mortel ! Ou tu finiras dans mon estomac ", "Je mange vos restes, fiche le camp cochon...",
+					"Pas touche bandes de porcs !", "Je vais me faire exploser le bide !", "Gruik! Faites tourner !",
+					"Ne penses pas que je vais partager hé hé."];
 
 //----------↑↑ Constantes ↑↑----------
 
 var prefix 		= settings.prefix;
+var rand		= 0;
 
 //----------↑↑ Variables ↑↑----------
 //----------↓↓    Code   ↓↓----------
@@ -54,6 +59,14 @@ bot.on('message', message => {
 		case "prefixe" :
 			prefixe(message,parametre.split(" ")[0]);
 		break;
+		//"name" -> répond quand on l'appelle
+		case "Hawk" :
+			hawk(message);
+		break;
+
+		case "restes" :
+			restes(message);
+		break;
 	}
 	message.delete();
 });
@@ -90,3 +103,16 @@ function prefixe(message,newPrefixe) {
 	// Modifie le jeu du bot
     bot.user.setActivity("Command: "+prefix+"help");
 }
+
+function hawk(message) {
+	console.log('Hawk function');
+	rand = Math.floor(Math.random() * 3);
+	message.channel.send(responses[rand]);
+}
+
+function restes(message) {
+	console.log('restes function');
+	rand = Math.floor(Math.random() * 7 + 4);
+	message.channel.send(responses[rand]);
+}
+
