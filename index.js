@@ -68,27 +68,30 @@ bot.on('message', message => {
 			restes(message);
 		break;
 	}
-	message.delete();
 });
 
 function help(message) {
-	message.channel.send("Liste des commandes:\n```-"+prefix+"help\t Affiche la liste des commandes\n-"+prefix+"salut\t Vous souhaite la bienvenue\n-"+prefix+"goat\t Affiche le gif d'une super chevre\n-"+prefix+"licorne\t Affiche la meilleure licorne du monde\n-"+prefix+"prefixe\t Change le préfixe\n\nPour plus d'aide, taper "+prefix+"help [nom de la commande]```");
+	message.channel.send("Liste des commandes:\n```-"+prefix+"help\t Affiche la liste des commandes\n-"+prefix+"salut\t Vous souhaite la bienvenue\n-"+prefix+"goat\t Affiche le gif d'une super chevre\n-"+prefix+"licorne\t Affiche la meilleure licorne du monde\n-"+prefix+"prefixe\t Change le préfixe\n-"+prefix+"Hawk\tEt quand vous l'appelez il répond ...\n-"+prefix+"restes\t... Mais n'est pas très partageur\n\nPour plus d'aide, taper "+prefix+"help [nom de la commande]```");
 	console.log("Commande help affichée");
+	message.delete();
 }
 
 function salut(message) {
 	message.reply("Bien le bonjour ! :)");
 	console.log("Commande Salut effectuée.");
+	message.delete();
 }
 
 function goat(message) {
 	message.reply("https://media.giphy.com/media/MYEgNY8dIxPpe/giphy.gif");
 	console.log("Summoned a goat !");
+	message.delete();
 }
 
 function licorne(message) {
 	message.channel.send("https://cdn.discordapp.com/attachments/282472433313644544/462945595955478528/licorne.jpg");
 	console.log("La meilleure licorne du monde à été affichée.");
+	message.delete();
 }
 
 function prefixe(message,newPrefixe) {
@@ -102,17 +105,20 @@ function prefixe(message,newPrefixe) {
 	message.channel.send("Nouveau préfixe : " + newPrefixe);
 	// Modifie le jeu du bot
     bot.user.setActivity("Command: "+prefix+"help");
+	message.delete();
 }
 
 function hawk(message) {
 	console.log('Hawk function');
 	rand = Math.floor(Math.random() * 3);
 	message.channel.send(responses[rand]);
+	message.delete();
 }
 
 function restes(message) {
 	console.log('restes function');
 	rand = Math.floor(Math.random() * 7 + 4);
 	message.channel.send(responses[rand]);
+	message.delete();
 }
 
