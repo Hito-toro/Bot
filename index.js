@@ -37,7 +37,7 @@ bot.on('message', message => {
 	var commande = message.content.split(" ")[0];						// On decoupe selon les espaces puis on récupère le premier mot (la commande donc)
 	var parametre = message.content.split(" ").slice(1).toString(); 	// On decoupe selon les espaces puis on recupère tous les autres mots sous forme de chaine de caractères
 
-	switch(commande) 
+	switch(commande)
 	{
 		// "help" -> Affiche la liste des commandes
 		case 'help' :
@@ -63,7 +63,7 @@ bot.on('message', message => {
 		case "Hawk" :
 			hawk(message);
 		break;
-
+		//"restes" -> touchez pas à ses restes
 		case "restes" :
 			restes(message);
 		break;
@@ -83,7 +83,7 @@ function salut(message) {
 }
 
 function goat(message) {
-	message.reply("https://media.giphy.com/media/MYEgNY8dIxPpe/giphy.gif");
+	message.channel.send("https://media.giphy.com/media/MYEgNY8dIxPpe/giphy.gif");
 	console.log("Summoned a goat !");
 	message.delete();
 }
@@ -121,4 +121,3 @@ function restes(message) {
 	message.channel.send(responses[rand]);
 	message.delete();
 }
-
