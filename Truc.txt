@@ -10,7 +10,7 @@ commande skip
 
 
 FICHIERS :	musique		// {"anime" : ["Nom/:/Lien", ...], "metal" : ["Nom/:/Lien", ...]}
-			joueurs		// { "Mystogan#5963" : {"points" : 13541320135468, "niveau" : "Dieu"}, ...}
+			joueurs		// { id : {"points" : nb_points, "niveau" : grade}, ...}
 
 Classes : 	Lecture/ecriture dans les fichiers
 			
