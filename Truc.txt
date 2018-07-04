@@ -1,0 +1,58 @@
+var obj = JSON.parse(fichier);			// "anime" : ["Nom/:/Lien", ...]
+
+obj.genre[nombre_alea]; => renvoie le lien 
+
+2 lettres prés, pas a la casse
+
+commande skip
+60 secondes, on passe dès que quelqu'un a trouvé
+
+
+
+FICHIERS :	musique		// {"anime" : ["Nom/:/Lien", ...], "metal" : ["Nom/:/Lien", ...]}
+			joueurs		// { "Mystogan#5963" : {"points" : 13541320135468, "niveau" : "Dieu"}, ...}
+
+Classes : 	Lecture/ecriture dans les fichiers
+			
+
+
+
+// on recois la commande du gens					Main
+// On decoupe ca pour recup le genre				Main
+// On cherche dans le fichier si le genre existe	(classe lecture)
+// On recup une musique au hasard					(classe lecture)
+// On rentre dans le channel						-> Hito
+// On joue la musique								-> Hito
+// Le joueur saisie la reponse						Main
+// On verifie si c'est bon (ou pres)				Main
+// On coupe la musique,  							-> Hito
+// attribue les points								(Classe ecriture) + Main
+// et quitte le channel								-> Hito
+
+--------------------------------------------------------------------------------
+// On message
+	commande = message.slice.towercase()
+	parametre = message.slice
+	id = message.author.id (?)
+
+	switch(commande){
+		"blindtest": blindtest(parametre,[titre],[lien]);		// parametre = le lien, [titre] et [lien] chaine de caractère locale passée sous forme de tableau (puis .join après)	// https://www.xul.fr/ecmascript/valeur-reference.php
+		"skip":		 skip();
+		"genre":	 genre(parametre);							// parametre = le nom du genre, si il n'existe pas l'ajouite dans le fichier musique
+		"musique":	 musique(parametre);						// parametre = nom et lien de la musique, a ajouter dans le fichier musique si innexistant
+		"niveau":	 niveau(id);								// id = l'id de l'utilisateur
+		"points":	 points(id);								// idem
+		"afficherniveaux": (?)
+	}
+
+	si blindtest.encours = vrai alors
+		verifierTitre();
+	fin
+----------------------------------------------------------------------------------
+
+AjouteGenre(genre);									// Modification ?
+	-> GenreExiste(genre);
+AjouteMusique(genre,titre,lien);					// Modification ?
+	-> MusiqueExiste(genre,titre,lien);
+MusiqueAleatoire([titre],[lien],OPT[genre]);
+	-> NombreAleatoire([genre]);
